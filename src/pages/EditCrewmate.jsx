@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { supabase } from '../client'
 import CrewmateForm from '../components/CrewmateForm'
 
 function EditCrewmate() {
   const { id } = useParams()
+  const navigate = useNavigate()
   const [crewmate, setCrewmate] = useState({ name: '', role: '', color: '' })
   const [savedCrewmate, setSavedCrewmate] = useState(null)
 
@@ -48,6 +49,17 @@ function EditCrewmate() {
     setSavedCrewmate(data)
   }
 
+  const deleteCrewmate = async () => {
+    const { error } = await supabase.from('crewmates').delete().eq('id', id)
+
+    if (error) {
+      alert(`Could not delete crewmate: ${error.message}`)
+      return
+    }
+
+    navigate('/gallery')
+  }
+
   return (
     <div className="EditCrewmate">
       <h1>Update Your Crewmate</h1>
@@ -65,7 +77,11 @@ function EditCrewmate() {
         setCrewmate={setCrewmate}
         onSubmit={updateCrewmate}
         submitLabel="Update Crewmate"
-      />
+      >
+        <button type="button" className="delete-button" onClick={deleteCrewmate}>
+          Delete Crewmate
+        </button>
+      </CrewmateForm>
     </div>
   )
 }
