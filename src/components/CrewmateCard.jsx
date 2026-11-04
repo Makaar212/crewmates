@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getColorHex } from '../constants/attributes'
 
 function CrewmateCard({ crewmate }) {
@@ -13,6 +14,9 @@ function CrewmateCard({ crewmate }) {
       <p className="card-attribute">
         <span>Color:</span> {crewmate.color || 'None'}
       </p>
+      <Link to={`/edit/${crewmate.id}`} className="edit-button">
+        Edit
+      </Link>
     </div>
   )
 }
