@@ -1,10 +1,10 @@
 # Web Development Project 7 - *Crewmate Creator*
 
-Submitted by: **Your Name Here**
+Submitted by: **Reagan George**
 
 This web app: **lets users build their own Among Us crew. Users can create crewmates by giving them a name, a role, and a color, see their whole crew in a gallery sorted newest first, open a detail page for each crewmate, and update or delete them. All data is stored in Supabase.**
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
@@ -65,7 +65,7 @@ GIF created with ...
 
 ## License
 
-    Copyright 2026 Your Name Here
+    Copyright 2026 Reagan George
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
