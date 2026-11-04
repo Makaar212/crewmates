@@ -1,7 +1,50 @@
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { supabase } from '../client'
+import CrewmateForm from '../components/CrewmateForm'
+
 function EditCrewmate() {
+  const { id } = useParams()
+  const [crewmate, setCrewmate] = useState({ name: '', role: '', color: '' })
+  const [savedCrewmate, setSavedCrewmate] = useState(null)
+
+  useEffect(() => {
+    const fetchCrewmate = async () => {
+      const { data, error } = await supabase
+        .from('crewmates')
+        .select('*')
+        .eq('id', id)
+        .single()
+
+      if (error) {
+        console.error('Could not load crewmate:', error.message)
+        return
+      }
+
+      setCrewmate(data)
+      setSavedCrewmate(data)
+    }
+
+    fetchCrewmate()
+  }, [id])
+
   return (
     <div className="EditCrewmate">
       <h1>Update Your Crewmate</h1>
+      {savedCrewmate && (
+        <div className="current-stats">
+          <h3>Current Info</h3>
+          <p>
+            {savedCrewmate.name} · {savedCrewmate.role || 'Unassigned'} ·{' '}
+            {savedCrewmate.color || 'None'}
+          </p>
+        </div>
+      )}
+      <CrewmateForm
+        crewmate={crewmate}
+        setCrewmate={setCrewmate}
+        submitLabel="Update Crewmate"
+      />
     </div>
   )
 }
