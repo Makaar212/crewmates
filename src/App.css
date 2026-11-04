@@ -87,3 +87,41 @@
   outline: none;
   border-color: var(--highlight);
 }
+
+.attribute-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--bg);
+  border: 1px solid var(--panel-light);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.option input {
+  display: none;
+}
+
+.option:hover {
+  border-color: var(--muted);
+}
+
+.option.selected {
+  background: var(--panel-light);
+  border-color: var(--highlight);
+  color: var(--highlight);
+}
