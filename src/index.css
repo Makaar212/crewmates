@@ -1,0 +1,20 @@
+:root {
+  --bg: #0b0d17;
+  --panel: #151a2d;
+  --panel-light: #1f2640;
+  --text: #e8ecf8;
+  --muted: #9aa3bd;
+  --accent: #c51111;
+  --accent-light: #ef3b3b;
+  --highlight: #38fedc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
