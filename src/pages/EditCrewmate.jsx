@@ -8,6 +8,7 @@ function EditCrewmate() {
   const navigate = useNavigate()
   const [crewmate, setCrewmate] = useState({ name: '', role: '', color: '' })
   const [savedCrewmate, setSavedCrewmate] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchCrewmate = async () => {
@@ -16,6 +17,8 @@ function EditCrewmate() {
         .select('*')
         .eq('id', id)
         .single()
+
+      setLoading(false)
 
       if (error) {
         console.error('Could not load crewmate:', error.message)
@@ -63,6 +66,8 @@ function EditCrewmate() {
 
     navigate('/gallery')
   }
+
+  if (loading) return <p className="status-message">Loading crewmate...</p>
 
   return (
     <div className="EditCrewmate">

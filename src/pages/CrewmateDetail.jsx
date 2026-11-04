@@ -6,6 +6,7 @@ import { getColorHex, ROLE_DESCRIPTIONS } from '../constants/attributes'
 function CrewmateDetail() {
   const { id } = useParams()
   const [crewmate, setCrewmate] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchCrewmate = async () => {
@@ -14,6 +15,8 @@ function CrewmateDetail() {
         .select('*')
         .eq('id', id)
         .single()
+
+      setLoading(false)
 
       if (error) {
         console.error('Could not load crewmate:', error.message)
@@ -26,6 +29,7 @@ function CrewmateDetail() {
     fetchCrewmate()
   }, [id])
 
+  if (loading) return <p className="status-message">Loading crewmate...</p>
   if (!crewmate) return null
 
   return (

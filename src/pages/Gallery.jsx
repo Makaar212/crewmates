@@ -5,6 +5,7 @@ import CrewmateCard from '../components/CrewmateCard'
 
 function Gallery() {
   const [crewmates, setCrewmates] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchCrewmates = async () => {
@@ -12,6 +13,8 @@ function Gallery() {
         .from('crewmates')
         .select('*')
         .order('created_at', { ascending: false })
+
+      setLoading(false)
 
       if (error) {
         console.error('Could not load crewmates:', error.message)
@@ -27,7 +30,9 @@ function Gallery() {
   return (
     <div className="Gallery">
       <h1>Your Crewmate Gallery</h1>
-      {crewmates.length > 0 ? (
+      {loading ? (
+        <p className="status-message">Loading your crew...</p>
+      ) : crewmates.length > 0 ? (
         <div className="gallery-grid">
           {crewmates.map((crewmate) => (
             <CrewmateCard key={crewmate.id} crewmate={crewmate} />
