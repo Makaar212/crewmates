@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { supabase } from '../client'
 import CrewmateForm from '../components/CrewmateForm'
+import NotFound from '../components/NotFound'
 
 function EditCrewmate() {
   const { id } = useParams()
@@ -68,6 +69,7 @@ function EditCrewmate() {
   }
 
   if (loading) return <p className="status-message">Loading crewmate...</p>
+  if (!savedCrewmate) return <NotFound />
 
   return (
     <div className="EditCrewmate">

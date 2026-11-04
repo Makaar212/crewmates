@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { supabase } from '../client'
 import { getColorHex, ROLE_DESCRIPTIONS } from '../constants/attributes'
+import NotFound from '../components/NotFound'
 
 function CrewmateDetail() {
   const { id } = useParams()
@@ -30,7 +31,7 @@ function CrewmateDetail() {
   }, [id])
 
   if (loading) return <p className="status-message">Loading crewmate...</p>
-  if (!crewmate) return null
+  if (!crewmate) return <NotFound />
 
   return (
     <div
