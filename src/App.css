@@ -160,3 +160,29 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.25rem;
 }
+
+.crewmate-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-light);
+  border-top: 6px solid var(--crewmate-color);
+  border-radius: 12px;
+}
+
+.card-name {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.card-attribute {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card-attribute span {
+  color: var(--text);
+  font-weight: 600;
+}
