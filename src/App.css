@@ -271,3 +271,34 @@
   background: var(--accent-light);
   color: #fff;
 }
+
+/* Detail page */
+.CrewmateDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 640px;
+  padding: 2rem;
+  background: var(--panel);
+  border: 1px solid var(--panel-light);
+  border-top: 8px solid var(--crewmate-color);
+  border-radius: 16px;
+}
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.detail-header h1 {
+  margin: 0;
+}
+
+.detail-swatch {
+  width: 40px;
+  height: 40px;
+  background: var(--crewmate-color);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
