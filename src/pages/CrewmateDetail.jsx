@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { supabase } from '../client'
 import { getColorHex, ROLE_DESCRIPTIONS } from '../constants/attributes'
 
@@ -62,6 +62,10 @@ function CrewmateDetail() {
           })}
         </p>
       </div>
+
+      <Link to={`/edit/${crewmate.id}`} className="detail-edit-link">
+        Edit this crewmate
+      </Link>
     </div>
   )
 }
