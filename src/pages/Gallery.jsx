@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { supabase } from '../client'
+import CrewmateCard from '../components/CrewmateCard'
 
 function Gallery() {
   const [crewmates, setCrewmates] = useState([])
@@ -25,7 +27,20 @@ function Gallery() {
   return (
     <div className="Gallery">
       <h1>Your Crewmate Gallery</h1>
-      <p>You have {crewmates.length} crewmates.</p>
+      {crewmates.length > 0 ? (
+        <div className="gallery-grid">
+          {crewmates.map((crewmate) => (
+            <CrewmateCard key={crewmate.id} crewmate={crewmate} />
+          ))}
+        </div>
+      ) : (
+        <div className="empty-state">
+          <p>You haven't made a crewmate yet!</p>
+          <Link to="/create" className="submit-button">
+            Create one here
+          </Link>
+        </div>
+      )}
     </div>
   )
 }
