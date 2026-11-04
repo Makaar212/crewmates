@@ -410,3 +410,41 @@
   color: var(--muted);
   font-size: 1.05rem;
 }
+
+/* Small screens */
+@media (max-width: 720px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border-right: none;
+    border-bottom: 1px solid var(--panel-light);
+  }
+
+  .sidebar-title {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .crewmate-form,
+  .CrewmateDetail {
+    padding: 1.25rem;
+  }
+
+  .detail-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
