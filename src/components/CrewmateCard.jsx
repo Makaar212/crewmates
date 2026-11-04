@@ -7,7 +7,11 @@ function CrewmateCard({ crewmate }) {
       className="crewmate-card"
       style={{ '--crewmate-color': getColorHex(crewmate.color) }}
     >
-      <h3 className="card-name">{crewmate.name}</h3>
+      <h3 className="card-name">
+        <Link to={`/crewmate/${crewmate.id}`} className="card-link">
+          {crewmate.name}
+        </Link>
+      </h3>
       <p className="card-attribute">
         <span>Role:</span> {crewmate.role || 'Unassigned'}
       </p>
