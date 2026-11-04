@@ -1,13 +1,13 @@
 import { ROLES, COLORS } from '../constants/attributes'
 
-function CrewmateForm({ crewmate, setCrewmate }) {
+function CrewmateForm({ crewmate, setCrewmate, onSubmit, submitLabel, children }) {
   const handleChange = (event) => {
     const { name, value } = event.target
     setCrewmate((prev) => ({ ...prev, [name]: value }))
   }
 
   return (
-    <form className="crewmate-form">
+    <form className="crewmate-form" onSubmit={onSubmit}>
       <label className="form-label" htmlFor="name">Name</label>
       <input
         id="name"
@@ -62,6 +62,13 @@ function CrewmateForm({ crewmate, setCrewmate }) {
           ))}
         </div>
       </fieldset>
+
+      <div className="form-actions">
+        <button type="submit" className="submit-button">
+          {submitLabel}
+        </button>
+        {children}
+      </div>
     </form>
   )
 }
