@@ -1,4 +1,4 @@
-import { ROLES } from '../constants/attributes'
+import { ROLES, COLORS } from '../constants/attributes'
 
 function CrewmateForm({ crewmate, setCrewmate }) {
   const handleChange = (event) => {
@@ -36,6 +36,28 @@ function CrewmateForm({ crewmate, setCrewmate }) {
                 onChange={handleChange}
               />
               {role}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <fieldset className="attribute-group">
+        <legend className="form-label">Color</legend>
+        <div className="options colors">
+          {COLORS.map((color) => (
+            <label
+              key={color.name}
+              className={`option ${crewmate.color === color.name ? 'selected' : ''}`}
+            >
+              <input
+                type="radio"
+                name="color"
+                value={color.name}
+                checked={crewmate.color === color.name}
+                onChange={handleChange}
+              />
+              <span className="swatch" style={{ background: color.hex }} />
+              {color.name}
             </label>
           ))}
         </div>
