@@ -28,6 +28,26 @@ function EditCrewmate() {
     fetchCrewmate()
   }, [id])
 
+  const updateCrewmate = async (event) => {
+    event.preventDefault()
+
+    const { name, role, color } = crewmate
+    const { data, error } = await supabase
+      .from('crewmates')
+      .update({ name, role, color })
+      .eq('id', id)
+      .select()
+      .single()
+
+    if (error) {
+      alert(`Could not update crewmate: ${error.message}`)
+      return
+    }
+
+    setCrewmate(data)
+    setSavedCrewmate(data)
+  }
+
   return (
     <div className="EditCrewmate">
       <h1>Update Your Crewmate</h1>
@@ -43,6 +63,7 @@ function EditCrewmate() {
       <CrewmateForm
         crewmate={crewmate}
         setCrewmate={setCrewmate}
+        onSubmit={updateCrewmate}
         submitLabel="Update Crewmate"
       />
     </div>
