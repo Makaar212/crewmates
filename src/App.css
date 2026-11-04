@@ -341,3 +341,17 @@
   color: var(--muted);
   font-size: 0.9rem;
 }
+
+.detail-edit-link {
+  align-self: flex-start;
+  padding: 0.6rem 1.25rem;
+  background: var(--accent);
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.detail-edit-link:hover {
+  background: var(--accent-light);
+}
