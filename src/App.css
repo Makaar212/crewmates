@@ -219,3 +219,25 @@
   background: var(--highlight);
   color: var(--bg);
 }
+
+.current-stats {
+  max-width: 720px;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--panel-light);
+  border-left: 4px solid var(--highlight);
+  border-radius: 8px;
+}
+
+.current-stats h3 {
+  margin: 0 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.current-stats p {
+  margin: 0;
+  font-size: 1.1rem;
+}
