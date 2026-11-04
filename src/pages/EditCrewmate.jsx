@@ -50,6 +50,10 @@ function EditCrewmate() {
   }
 
   const deleteCrewmate = async () => {
+    if (!window.confirm(`Are you sure you want to delete ${crewmate.name}?`)) {
+      return
+    }
+
     const { error } = await supabase.from('crewmates').delete().eq('id', id)
 
     if (error) {
