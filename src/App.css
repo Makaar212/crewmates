@@ -201,3 +201,21 @@
   color: var(--muted);
   font-size: 1.1rem;
 }
+
+/* Edit */
+.edit-button {
+  align-self: flex-start;
+  margin-top: 0.75rem;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--highlight);
+  border-radius: 6px;
+  color: var(--highlight);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+
+.edit-button:hover {
+  background: var(--highlight);
+  color: var(--bg);
+}
