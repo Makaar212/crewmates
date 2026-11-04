@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { supabase } from '../client'
-import { getColorHex } from '../constants/attributes'
+import { getColorHex, ROLE_DESCRIPTIONS } from '../constants/attributes'
 
 function CrewmateDetail() {
   const { id } = useParams()
@@ -44,6 +44,22 @@ function CrewmateDetail() {
         </p>
         <p>
           <span>Color:</span> {crewmate.color || 'None'}
+        </p>
+      </div>
+
+      <div className="detail-extra">
+        <h3>About this crewmate</h3>
+        <p>
+          {ROLE_DESCRIPTIONS[crewmate.role] ??
+            "This crewmate hasn't picked a role yet."}
+        </p>
+        <p className="detail-date">
+          Joined the crew on{' '}
+          {new Date(crewmate.created_at).toLocaleDateString(undefined, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
         </p>
       </div>
     </div>

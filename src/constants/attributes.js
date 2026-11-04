@@ -13,6 +13,21 @@ export const ROLES = [
   'Judge',
 ]
 
+export const ROLE_DESCRIPTIONS = {
+  Crewmate: 'Finishes tasks and keeps the ship running.',
+  Impostor: 'Blends in with the crew... and waits for the right moment.',
+  Engineer: 'Can hop into vents to get around the ship fast.',
+  Scientist: 'Checks crew vitals from anywhere on the ship.',
+  'Guardian Angel': 'Watches over the crew and shields them from harm.',
+  Tracker: 'Tags a crewmate and follows their every move.',
+  Noisemaker: 'Sets off an alert the moment they are taken out.',
+  Detective: 'Investigates suspects and pieces together the truth.',
+  Shapeshifter: 'Disguises as other crewmates to sow confusion.',
+  Phantom: 'Turns invisible to slip away unseen.',
+  Viper: 'Strikes quickly and leaves little trace behind.',
+  Judge: 'Weighs the evidence and casts the deciding vote.',
+}
+
 export const COLORS = [
   { name: 'Red', hex: '#c51111' },
   { name: 'Blue', hex: '#132ed1' },
